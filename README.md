@@ -7,8 +7,8 @@ The program must be run within the Debug directory with the DLLs.
 Requires .Net Framework 4.0
 
 Contains:
-NAudio, Accord.NET
-Waveform visualization
+NAudio, Accord.NET,
+Waveform visualization, and
 Simple Clustering techniques
 
 Suppose to break apart the song into bridge, chorus, riff etc and randomly mix them in an infinite loop
