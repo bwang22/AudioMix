@@ -20,3 +20,25 @@ C:\Users\beiqi_000\documents\visual studio 2013\Projects\AudioMix\AudioMix\bin\D
 C:\Users\beiqi_000\documents\visual studio 2013\Projects\AudioMix\AudioMix\bin\Debug\Accord.Statistics.xml
 C:\Users\beiqi_000\documents\visual studio 2013\Projects\AudioMix\AudioMix\bin\Debug\AForge.xml
 C:\Users\beiqi_000\documents\visual studio 2013\Projects\AudioMix\AudioMix\bin\Debug\AForge.Math.xml
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.exe
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.pdb
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.csprojResolveAssemblyReference.cache
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.Form1.resources
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.Properties.Resources.resources
+D:\AllVSProject232015\AudioMix\AudioMix\obj\Debug\AudioMix.csproj.GenerateResource.Cache
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AudioMix.exe
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AudioMix.pdb
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.MachineLearning.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.Math.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.Statistics.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AForge.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AForge.Math.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\NAudio.dll
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.MachineLearning.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.Math.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\Accord.Statistics.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AForge.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\AForge.Math.xml
+D:\AllVSProject232015\AudioMix\AudioMix\bin\Debug\NAudio.xml

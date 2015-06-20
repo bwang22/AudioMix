@@ -14,7 +14,10 @@ namespace AudioMix
     /// </summary>
     public class WaveViewer : System.Windows.Forms.UserControl
     {
-        public Color PenColor { get; set; }
+        public Color[] PenColor { get; set; }
+        public int tick { get; set; }
+        public int randomnum = 0;
+        public int[] RandomizedInt { get; set; }
         public float PenWidth { get; set; }
         public List<float> Datax = new List<float>();
         public List<float> Datay = new List<float>();
@@ -41,12 +44,67 @@ namespace AudioMix
             // This call is required by the Windows.Forms Form Designer.
             InitializeComponent();
             this.DoubleBuffered = true;
+            PenColor = new Color[3];
+            RandomizedInt = new int[3];
+            this.PenColor[0] = Color.Blue;
+            this.PenColor[1] = Color.Red;
+            this.PenColor[2] = Color.Yellow;
 
-            this.PenColor = Color.DodgerBlue;
+            Randomize();
+            tick = 0;
+
             this.PenWidth = 1;
             this.GetTotal = false;
         }
-
+        public void Randomize()
+        {
+            randomnum++;
+            /*Random r = new Random();
+            RandomizedInt[0] = r.Next(0, 3);
+            RandomizedInt[1] = r.Next(0, 3);
+            RandomizedInt[2] = r.Next(0, 3);
+            while (RandomizedInt[1] == RandomizedInt[0])
+                RandomizedInt[1] = r.Next(0, 3);
+            while (RandomizedInt[2] == RandomizedInt[1])
+                RandomizedInt[2] = r.Next(0, 3);
+             * */
+            if(randomnum % 6 == 0)
+            {
+                RandomizedInt[0] = 0;
+                RandomizedInt[1] = 1;
+                RandomizedInt[2] = 2;
+            }
+            else if(randomnum % 6 == 1)
+            {
+                RandomizedInt[0] = 0;
+                RandomizedInt[1] = 2;
+                RandomizedInt[2] = 1;
+            }
+            else if (randomnum % 6 == 2)
+            {
+                RandomizedInt[0] = 1;
+                RandomizedInt[1] = 2;
+                RandomizedInt[2] = 0;
+            }
+            else if (randomnum % 6 == 3)
+            {
+                RandomizedInt[0] = 1;
+                RandomizedInt[1] = 0;
+                RandomizedInt[2] = 2;
+            }
+            else if (randomnum % 6 == 4)
+            {
+                RandomizedInt[0] = 2;
+                RandomizedInt[1] = 0;
+                RandomizedInt[2] = 1;
+            }
+            else if (randomnum % 6 == 5)
+            {
+                RandomizedInt[0] = 2;
+                RandomizedInt[1] = 1;
+                RandomizedInt[2] = 0;
+            }
+        }
         /// <summary>
         /// sets the associated wavestream
         /// </summary>
@@ -118,6 +176,12 @@ namespace AudioMix
         /// </summary>
         protected override void OnPaint(PaintEventArgs e)
         {
+            tick++;
+            if (tick % 100 == 0)
+            {
+                Randomize();
+                this.BackColor = PenColor[this.RandomizedInt[2]];
+            }
             Datax.Clear();
             Datay.Clear();
             if (waveStream != null)
@@ -126,7 +190,7 @@ namespace AudioMix
                 int bytesRead;
                 byte[] waveData = new byte[samplesPerPixel * bytesPerSample];
                 waveStream.Position = startPosition + (e.ClipRectangle.Left * bytesPerSample * samplesPerPixel);
-                using (Pen linePen = new Pen(PenColor, PenWidth))
+                using (Pen linePen = new Pen(PenColor[this.RandomizedInt[0]], PenWidth))
                 {
                     for (float x = e.ClipRectangle.X; x < e.ClipRectangle.Right; x += 1)
                     {
@@ -209,8 +273,8 @@ namespace AudioMix
                         }
                         GetTotal = false;
                     }
-                    e.Graphics.DrawLine(new Pen(Color.Red, 1), 0, this.Height / 2, this.Width, this.Height / 2);
-                    e.Graphics.DrawLine(new Pen(Color.Red, 1), 25, 0, 25, this.Height);
+                    e.Graphics.DrawLine(new Pen(PenColor[RandomizedInt[1]], 1), 0, this.Height / 2, this.Width, this.Height / 2);
+                    e.Graphics.DrawLine(new Pen(PenColor[RandomizedInt[1]], 1), 25, 0, 25, this.Height);
                 }
             }
 

@@ -9,14 +9,29 @@ using System.Windows.Forms;
 using System.IO;
 using NAudio;
 using NAudio.Wave;
+using System.Runtime.InteropServices;
 
 namespace AudioMix
 {
     public partial class Form1 : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+         );
+
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+        
         }
         public static void Mp3ToWav(string mp3File, string outputFile)
         {
@@ -109,8 +124,15 @@ namespace AudioMix
             timer1.Interval = 20;
             timer1.Enabled = true;
             timer1.Start();
-            
-            
+            Rectangle workingArea = Screen.GetWorkingArea(this);
+            this.Location = new Point(workingArea.Right - Size.Width-20,
+                                      workingArea.Bottom - Size.Height - 20);
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.TopMost = true;
+            this.Opacity = .8;
+            openToolStripMenuItem.Visible = false;
+            menuStrip1.Visible = false;
+            this.pictureBox1.Image = Image.FromFile("D:\\AllVSProject232015\\AudioMix\\AudioMix\\Hypnoctivity-Logo.png");
         }
 
         void Application_Idle(object sender, EventArgs e)
